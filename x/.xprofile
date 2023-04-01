@@ -1,0 +1,8 @@
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export GLFW_IM_MODULE=ibus
+
+# fcitx5 -d -s 1 &
+ibus-daemon -drxR &
+light-locker &
