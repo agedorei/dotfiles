@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+#bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/hory/.zshrc'
@@ -15,3 +15,6 @@ powerline-daemon -q
 . /usr/share/powerline/bindings/zsh/powerline.zsh
 
 alias ls='ls --almost-all --color=auto --sort=extension -v'
+
+# opam configuration
+[[ ! -r /home/hory/.opam/opam-init/init.zsh ]] || source /home/hory/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
