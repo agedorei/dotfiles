@@ -29,10 +29,14 @@ font pango:M PLUS 1 Code Medium 8
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# 輝度調整
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -153,6 +157,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# スクリーンショット
+bindsym Print exec --no-startup-id import -window root ~/screenshot`date "+%y%m%d%H%M"`.jpg
+
 # System menu
 set $Locker light-locker-command -l && sleep 1
 
@@ -192,8 +199,22 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+## Manual management of external displays
+# Set the shortcuts and what they do
+set $mode_display Ext. Screen (1) My room monitor, (2) Lab. monitor, (0) All off except eDP1
+mode "$mode_display" {
+        bindsym 1 exec --no-startup-id xrandr --output DP1 --auto --left-of eDP1
+        bindsym 2 exec --no-startup-id xrandr --output HDMI2 --auto --right-of eDP1
+        bindsym 0 exec --no-startup-id xrandr --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+# Declare here the shortcut to bring the display selection menu
+bindsym $mod+Shift+d mode "$mode_display"
 
 # class                 border          background      text            indicator       child_border
 client.focused          "#4c7899"       "#285577"       "#ffffff"       "#2e9ef4"       "#285577"
