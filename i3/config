@@ -158,7 +158,8 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # スクリーンショット
-bindsym Print exec --no-startup-id import -window root ~/screenshot`date "+%y%m%d%H%M"`.jpg
+# bindsym Print exec --no-startup-id import -window root ~/screenshot/IMG-`date "+%y-%m-%d-%H%M%S"`.jpg
+bindsym Print exec --no-startup-id flameshot gui
 
 # System menu
 set $Locker light-locker-command -l && sleep 1
