@@ -1,0 +1,2 @@
+{"timestamp":190755475,"category":"fog.validation","name":"validate_early_event"}
+{"timestamp":190756099,"category":"nimbus_events","name":"enrollment","extra":{"enrollment_id":"3cfb216c-075f-4694-b6db-a316e78e654c","branch":"treatment","experiment":"upgrade-spotlight-rollout","experiment_type":"rollout"}}

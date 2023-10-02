@@ -1,0 +1,13 @@
+9
+
+https://otona-life.com/
+https://otona-life.com/serviceworker.js
+true
+{00216cc6-97a9-447f-b9b6-af66881190c5}
+0
+1695226270247989
+1695226270248768
+1695226270172131
+0
+true
+#
