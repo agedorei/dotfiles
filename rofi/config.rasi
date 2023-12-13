@@ -2,16 +2,16 @@
 @theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
 
 configuration {
-	modes: "combi,drun,run,window";
-	font: "SourceHanSans 12";
+	modes: "drun,ssh,combi,run,window";
+	font: "SourceHanSans 16px";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 	show-icons: true;
-/*	terminal: "rofi-sensible-terminal";*/
-/*	ssh-client: "ssh";*/
-/*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
+	terminal: "kitty";
+	ssh-client: "kitty +kitten ssh";
+	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
 /*	run-command: "{cmd}";*/
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/
@@ -29,7 +29,7 @@ configuration {
 /*	sorting-method: "normal";*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
-/*	sidebar-mode: false;*/
+	sidebar-mode: true;
 /*	hover-select: false;*/
 /*	eh: 1;*/
 /*	auto-select: false;*/

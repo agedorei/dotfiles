@@ -14,7 +14,11 @@ compinit
 powerline-daemon -q
 . /usr/share/powerline/bindings/zsh/powerline.zsh
 
-alias ls='ls --almost-all --color=auto --sort=extension -v'
-
 # opam configuration
 [[ ! -r /home/hory/.opam/opam-init/init.zsh ]] || source /home/hory/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+alias ls='ls --almost-all --color=auto --sort=extension -v'
+alias ll='ls -l --almost-all --color=auto --sort=extension -v'
+alias ssh='kitten ssh'
+alias unzip='unzip -O utf8'
+alias n3='nnn -defHi'

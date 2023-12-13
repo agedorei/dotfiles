@@ -1,16 +1,19 @@
-# READ ME!
+# READ ME
 
 This is Hory-chan's dotfile!
 
 ## Contents
 
-- Bash config (no change)
-- ~~Git config~~
-- i3 config
-- i3status config
-- kitty config
-- neofetch config
-- rofi config
-- vim config
+Include the following
+
+- Bash configs (I'm going to change it now.)
+- I3wm config
+- I3Status config
+- Kitty config
+- Neofetch config
+- Readline config
+- Rofi config
+- Sound config
+- Ex/vi config
 - Xorg config
-- Zsh config
+- Zsh configs
