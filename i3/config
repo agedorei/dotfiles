@@ -13,22 +13,7 @@ set $right l
 font pango:M PLUS 1 Code Medium 12px
 #font pango:SF Pro Display Black 12px
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-# exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
+# Use pactl to adjust volume in WirePlumber.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+ && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && $refresh_i3status
@@ -53,7 +38,7 @@ bindsym $mod+Return exec "kitty"
 bindsym $mod+Shift+q kill
 
 # start a program launcher
-bindsym $mod+d exec --no-startup-id "rofi -show combi"
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
 
 # change focus
 bindsym $mod+$left focus left
@@ -155,11 +140,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# スクリーンショット
-# bindsym Print exec --no-startup-id import -window root ~/screenshot/IMG-`date "+%y-%m-%d-%H%M%S"`.jpg
+# Screenshot
 bindsym Print exec --no-startup-id flameshot gui
 
 # System menu
@@ -205,11 +186,11 @@ bindsym $mod+r mode "resize"
 
 ## Manual management of external displays
 # Set the shortcuts and what they do
-set $mode_display Connect to (1) My room monitor, (2) Lab. monitor, (0) All off except eDP1
+set $mode_display Connect to (1) Extend monitor Left, (2) Extend monitor Right, (0) Only eDP1
 mode "$mode_display" {
         bindsym 1 exec --no-startup-id xrandr --output DP1 --auto --left-of eDP1, mode "default"
         bindsym 2 exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1, mode "default"
-        bindsym 0 exec --no-startup-id xrandr --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off, mode "default"
+        bindsym 0 exec --no-startup-id xrandr --output eDP1 --auto --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -218,7 +199,7 @@ mode "$mode_display" {
 # Declare here the shortcut to bring the display selection menu
 bindsym $mod+Shift+d mode "$mode_display"
 
-# class                 border          background      text            indicator       child_border
+# colorclass            border          background      text            indicator       child_border
 client.focused          "#4c7899"       "#285577"       "#ffffff"       "#2e9ef4"       "#285577"
 client.focused_inactive "#333333"       "#5f676a"       "#ffffff"       "#484e50"       "#5f676a"
 client.unfocused        "#333333"       "#222222"       "#888888"       "#292d2e"       "#222222"

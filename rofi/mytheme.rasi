@@ -1,0 +1,87 @@
+* {
+    base-colour: #000;
+    main-colour: #fff;
+    accent-colour: #ff7700;
+    comple-colour: #0064ff;
+
+    sub-colour: #222;
+    subsub-colour: #777;
+
+    font: "M PLUS 1 Code Medium 16px";
+
+    background-color: @base-colour;
+    text-color: @main-colour;
+    highlight: @comple-colour;
+}
+
+window {
+    position: 0;
+    width: 50%;
+}
+
+mainbox {
+    children: [mode-switcher, inputbar, listview, message];
+}
+
+message {}
+
+textbox {
+    border-color: @accent-colour;
+    border: 4px;
+    padding: 8px;
+}
+
+listview {
+    fixed-height: true;
+    scrollbar: true;
+    spacing: 0;
+    margin: 0 0 8px 0;
+}
+
+element {
+    margin: 0 8px;
+    padding: 4px;
+    spacing: 0;
+}
+
+element normal {}
+
+element selected {
+    background-color: @accent-colour;
+}
+
+element alternate {}
+
+element-icon,
+element-text {
+    background-color: inherit;
+    padding: 0 4px;
+}
+
+scrollbar {
+    background-color: @sub-colour;
+    handle-color: @subsub-colour;
+    handle-width: 16px;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 4px 0;
+}
+
+button selected {
+    background-color: @accent-colour;
+}
+
+inputbar {
+    children: [entry];
+}
+
+entry {
+    background-color: @sub-colour;
+    margin: 8px;
+    padding: 4px;
+}

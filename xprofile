@@ -3,6 +3,10 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export GLFW_IM_MODULE=ibus
 
+#display -backdrop -background '#000' -flatten -window root ~/My_image/ak_endfield.jpg
+display -backdrop -background '#000' -flatten -window root ~/My_image/thruxton_chrome.JPG
+
 ibus-daemon -drxR &
 light-locker &
 thunar --daemon &
+twmnd &
