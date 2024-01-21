@@ -11,9 +11,10 @@ Include the following
 - I3Status config
 - Kitty config
 - Neofetch config
+- Mutt config
 - Readline config
-- Rofi config
+- Rofi config and theme
 - Sound config
-- Ex/vi config
+- Ex/vi/neovim config
 - Xorg config
 - Zsh configs
