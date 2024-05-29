@@ -10,8 +10,9 @@ set $right l
 
 # Font option
 # font pango:<family list> [<style options>] <size>
-font pango:M PLUS 1 Code Medium 12px
+#font pango:M PLUS 1 Code Medium 12px
 #font pango:SF Pro Display Black 12px
+font pango:Fira Mono 12px
 
 # Use pactl to adjust volume in WirePlumber.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -94,8 +95,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # windows border size
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 3
+default_floating_border pixel 3
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -186,10 +187,10 @@ bindsym $mod+r mode "resize"
 
 ## Manual management of external displays
 # Set the shortcuts and what they do
-set $mode_display Connect to (1) Extend monitor Left, (2) Extend monitor Right, (0) Only eDP1
+set $mode_display Connect to (1) Extend monitor Left, (2) Only extend monitor , (0) Only eDP1
 mode "$mode_display" {
         bindsym 1 exec --no-startup-id xrandr --output DP1 --auto --left-of eDP1, mode "default"
-        bindsym 2 exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1, mode "default"
+        bindsym 2 exec --no-startup-id xrandr --output DP1 --auto --left-of eDP1 --output eDP1 --off, mode "default"
         bindsym 0 exec --no-startup-id xrandr --output eDP1 --auto --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off, mode "default"
 
         # back to normal: Enter or Escape
