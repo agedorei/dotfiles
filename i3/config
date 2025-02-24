@@ -10,9 +10,7 @@ set $right l
 
 # Font option
 # font pango:<family list> [<style options>] <size>
-#font pango:M PLUS 1 Code Medium 12px
-#font pango:SF Pro Display Black 12px
-font pango:Fira Mono 12px
+font pango:PlemolJP Console NF Text 12px
 
 # Use pactl to adjust volume in WirePlumber.
 set $refresh_i3status killall -SIGUSR1 i3status

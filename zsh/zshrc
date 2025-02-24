@@ -11,13 +11,15 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-powerline-daemon -q
-. /usr/share/powerline/bindings/zsh/powerline.zsh
+#powerline-daemon -q
+#. /usr/share/powerline/bindings/zsh/powerline.zsh
+PROMPT="%F{green}%D %* [%n]
+%~%f %# "
 
 # opam configuration
 [[ ! -r /home/hory/.opam/opam-init/init.zsh ]] || source /home/hory/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-source ~/.zprofile
+#source ~/.zprofile
 
 alias ls='ls --almost-all --color=auto --sort=extension -v'
 alias ll='ls -l --almost-all --color=auto --sort=extension -v'

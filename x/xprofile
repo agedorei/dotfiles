@@ -2,13 +2,17 @@ export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export GLFW_IM_MODULE=ibus
+export LIBVA_DRIVER_NAME=iHD
+export VDPAU_DRIVER=va_gl
 
-display -backdrop -background '#000' -flatten -window root ~/My_image/ak_endfield.jpg
+#display -backdrop -background '#000' -flatten -window root ~/My_image/ak_endfield.jpg
 #display -backdrop -background '#000' -flatten -window root ~/My_image/thruxton_chrome.JPG
 #display -backdrop -background '#000' -flatten -window root ~/My_image/ak_ccowov.png
+display -backdrop -background '#000' -flatten -window root ~/My_images/mary.PNG
 
 ibus-daemon -drxR &
 light-locker &
 #thunar --daemon &
-twmnd &
+#twmnd &
 pactl load-module module-switch-on-connect &
+wired &
